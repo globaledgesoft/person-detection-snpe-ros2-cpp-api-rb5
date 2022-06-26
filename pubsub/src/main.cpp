@@ -64,7 +64,7 @@ public:
 	original_height = cap.get(cv::CAP_PROP_FRAME_HEIGHT); //get the height of frames of the video
 	std::cout << "Resolution of the video : " << original_width << " x " << original_height << std::endl;
 	video.open("Vid.mp4", fourcc, 30/1, cv::Size(original_width, original_height), true);
-	cap.open(0);
+	cap.open("qtiqmmfsrc name=qmmf ! video/x-raw, format=NV12, width=640, height=480, framerate=30/1 ! videoconvert ! video/x-raw,format=BGR ! appsink drop=1", cv::CAP_GSTREAMER);
 	if (cap.isOpened() == false)  
 	{
 	    std::cout << "Cannot open the video camera" << std::endl;
